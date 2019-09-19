@@ -18,8 +18,8 @@ namespace Agile.BaseLib.DbContext
         {
             Db = new SqlSugarClient(new ConnectionConfig()
             {
-                ConnectionString = dbOption.Value.MsSqlServer,
-                DbType = DbType.SqlServer,
+                ConnectionString = dbOption.Value.DbConnectionString,
+                DbType = (DbType)Enum.Parse(typeof(DbType), dbOption.Value.Type),
                 InitKeyType = InitKeyType.Attribute,
                 IsAutoCloseConnection = true
             });
